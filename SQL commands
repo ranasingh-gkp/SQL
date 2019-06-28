@@ -1,0 +1,94 @@
+
+USE imdb;
+SHOW TABLES;
+DESCRIBE movies;
+
+****************************************************************************************************
+
+SELECT * FROM movies;
+# more data transfer
+
+#result-set: a set of rows that form the result of a query along with column-names and meta-data.
+
+SELECT name,rankscore FROM movies; 
+
+SELECT rankscore,name FROM movies;
+#row order same as the one in the table
+
+****************************************************************************************************
+
+
+LIMIT:
+
+SELECT name,rankscore FROM movies LIMIT 20;
+
+SELECT name,rankscore FROM movies LIMIT 20 OFFSET 40;
+
+****************************************************************************************************
+
+
+ORDER BY:
+
+# list recent movies first
+
+SELECT name,rankscore,year FROM movies ORDER BY year DESC LIMIT 20;
+
+# default:ASC
+# the output row order amynot be same as the one in the table due to query optimzier and internal data-structres/indices.
+
+SELECT name,rankscore FROM movies ORDER BY year DESC LIMIT 20;
+
+****************************************************************************************************
+
+
+DISTINCT:
+
+# list all genres of 
+SELECT DISTINCT genre FROM movies_genres;
+
+
+# multiple-column DISTINCT
+SELECT DISTINCT first_name, last_name FROM directors;
+
+****************************************************************************************************
+
+WHERE:
+
+# list all movies with rankscore>9
+SELECT name,year,rankscore FROM movies WHERE rankscore>9 ;
+
+SELECT name,year,rankscore FROM movies WHERE rankscore>9 ORDER BY rankscore DESC LIMIT 20;
+
+
+# Condition's outputs: TRUE, FALSE, NULL
+
+# Comparison Operators: = , <> or != , < , <= , >, >= 
+SELECT * FROM movies_genres WHERE genre = 'Comedy';
+
+SELECT * FROM movies_genres WHERE genre <> 'Horror';
+
+
+NULL => doesnot-exist/unknown/missing
+
+# = deosnot work with NULL, will give you an empty result-set.
+SELECT name,year,rankscore FROM movies WHERE rankscore = NULL;
+
+
+SELECT name,year,rankscore FROM movies WHERE rankscore IS NULL LIMIT 20;
+
+SELECT name,year,rankscore FROM movies WHERE rankscore IS NOT NULL LIMIT 20;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
