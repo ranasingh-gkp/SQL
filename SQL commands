@@ -22,7 +22,7 @@ LIMIT:
 
 SELECT name,rankscore FROM movies LIMIT 20;
 
-SELECT name,rankscore FROM movies LIMIT 20 OFFSET 40;
+SELECT name,rankscore FROM movies LIMIT 20 OFFSET 40;           #ignore first 40 row and frint next 20
 
 ****************************************************************************************************
 
@@ -48,7 +48,7 @@ SELECT DISTINCT genre FROM movies_genres;
 
 
 # multiple-column DISTINCT
-SELECT DISTINCT first_name, last_name FROM directors;
+SELECT DISTINCT first_name, last_name FROM directors;     #distinct apply on both column one first column value can repeate 
 
 ****************************************************************************************************
 
